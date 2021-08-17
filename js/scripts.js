@@ -76,6 +76,8 @@ function boldPassage(word, text) {
   textArray.forEach(function(element, index) {
     if (word === element) {
       htmlString = htmlString.concat("<b>" + element + "</b>");
+    } else if (element.includes(word)) {
+      htmlString = htmlString.concat(element.replaceAll(word, "<b>" + word + "</b>"))
     } else {
       htmlString = htmlString.concat(element);
     }
