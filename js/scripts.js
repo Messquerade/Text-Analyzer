@@ -1,13 +1,23 @@
 // Utility Logic
 
-function noInputtedWord(word, text) {
-  return ((text.trim().length === 0) || (word.trim().length === 0));
+// function noInputtedWord(word, text) {
+//   return ((text.trim().length === 0) || (word.trim().length === 0));
+// }
+
+function noInputtedWord() {
+  for (let i=0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+    if (arguments[i].trim().length === 0) {
+      return true;
+    }
+  }
+  return false;
 }
 
 // Business Logic
 
 function wordCounter(text) {
-  if (text.trim().length === 0) {
+  if (noInputtedWord(text)) {
     return 0;
   }
   let wordCount = 0;
@@ -42,6 +52,17 @@ function censor(text) {
   return text;
 }
 
+function firstInstanceOfWord(word, text) {
+  const textArray = text.split(" ");
+  for (let i = 0; i < textArray.length; i++) {
+    console.log(i);
+    if (word === textArray[i]) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 // function mostFrequentWords(text) {
 //   if (text.trim().length === 0){
 //     return "";
@@ -71,8 +92,8 @@ function boldPassage(word, text) {
     return "";
   }
   let htmlString = "<p>";
-  const censoredText = censor(text);
-  let textArray = censoredText.split(" ");
+  let censoredText = censor(text);
+  let textArray = consoredText.split(" ");
   textArray.forEach(function(element, index) {
     if (word === element) {
       htmlString = htmlString.concat("<b>" + element + "</b>");
