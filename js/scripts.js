@@ -1,9 +1,5 @@
 // Utility Logic
 
-// function noInputtedWord(word, text) {
-//   return ((text.trim().length === 0) || (word.trim().length === 0));
-// }
-
 function noInputtedWord() {
   for (let i=0; i < arguments.length; i++) {
     console.log(arguments[i]);
@@ -44,13 +40,13 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
-function censor(text) {
-  text = text.replaceAll("zoinks", "#$*&");
-  text = text.replaceAll("muppeteer", "%^**&");
-  text = text.replaceAll("biffaroni", "%$#^*");
-  text = text.replaceAll("loopdaloop", "&%^&#%$@");
-  return text;
-}
+// function censor(text) {
+//   text = text.replaceAll("zoinks", "#$*&");
+//   text = text.replaceAll("muppeteer", "%^**&");
+//   text = text.replaceAll("biffaroni", "%$#^*");
+//   text = text.replaceAll("loopdaloop", "&%^&#%$@");
+//   return text;
+// }
 
 function firstInstanceOfWord(word, text) {
   const textArray = text.split(" ");
@@ -92,8 +88,7 @@ function boldPassage(word, text) {
     return "";
   }
   let htmlString = "<p>";
-  let censoredText = censor(text);
-  let textArray = consoredText.split(" ");
+  let textArray = text.split(" ");
   textArray.forEach(function(element, index) {
     if (word === element) {
       htmlString = htmlString.concat("<b>" + element + "</b>");
